@@ -27,7 +27,7 @@ const todosReducer = (state = initialState, action) => {
                 todoList: [...state.todoList, todoList.filter(todo => !todo.completed).length]
             };
         case DELETE_TODO:
-            const newTodosMinusOne = todoList.filter(todo => {
+            const newTodosMinusOne = state.todoList.filter(todo => {
                 if (todo.id === action.payload) {
                     return false
                 }
