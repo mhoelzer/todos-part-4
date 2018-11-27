@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addTodo, deleteTodo, toggleTodo } from "../Actions/actions"
 
 // pascal case helps with distinguishing from html
 // no state b/c no way to change components with state,; this is just displaying and showing render method
 class TodoItem extends Component {
     render() {
-        // if dont do this, change this to match the stuff with todos and this.state
         const { title, completed, handleToggleCompletedTodo, handleDestroyOne } = this.props;
         return (
             // it will be completed
@@ -23,4 +24,17 @@ class TodoItem extends Component {
     };
 };
 
-export default TodoItem;
+// put the title stuff?
+const mapStateToProps = (state) => {
+    return {
+        // title
+    }
+};
+// put the rest
+const mapDispatchToProps = (dispatch) => {
+    return {
+        // clearCompletedTodos: () => dispatch(clearCompletedTodos())
+    }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(TodoItem)
+// export default TodoItem;

@@ -11,6 +11,7 @@ let store = createStore(todosReducer);
 
 const Index = () => (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
+    {/* comp that procides access to connect for any subcomp to be able to access redux store */}
         <Provider store={store}>
             <App />
         </Provider>

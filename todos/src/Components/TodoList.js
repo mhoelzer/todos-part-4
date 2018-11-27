@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-// import queryString from "query-string";
+import { connect } from 'react-redux';
 import TodoItem from "./TodoItem.js";
-import todoList from '../todos.json';
+// import todoList from '../todos.json';
 import TodoHeader from './TodoHeader.js';
 import TodoFooter from './TodoFooter.js';
 
 class TodoList extends Component {
-    state = {
-        todos: todoList
-    };    
+    // state = {
+    //     todos: todoList
+    // };    
     render() {
         const { todos, handleAddTodo } = this.props;
         return (

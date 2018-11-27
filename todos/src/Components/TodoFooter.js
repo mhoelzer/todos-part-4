@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
-import { connect } from 'net';
-import {clearCompletedTodos} from "../Actions/actions" // if it's called index.js, you dont need to add it 
+import { connect } from 'react-redux';
+import { clearCompletedTodos } from "../Actions/actions" // if it's called index.js, you dont need to add it 
 
 class TodoFooter extends Component {
     render() {
@@ -26,15 +26,16 @@ class TodoFooter extends Component {
 const mapStateToProps = (state) => {
     return {
         // there is a todos prop on state
-        completed: state.todos.filter(todo => !todo.completed).length
+        // todos: state.todos.filter(todo => !todo.completed).length
+        todos: state.todos
     }
-}
+};
 const mapDispatchToProps = (dispatch) => {
     return {
         // call actionCreater() and dispatch it to the redux reducer; could alwayes just write as cCT() as long as named as same thing as prop in comp above and put in {} inside connect
         clearCompletedTodos: () => dispatch(clearCompletedTodos())
     }
-}
+};
 // if export derfault, dont have to use the same name; this one isnt nameed at all
 // connect decides when to call these functions; helps relay stuff into react; dont have to pass down props to mult levels; can modify any state on one comp 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoFooter)

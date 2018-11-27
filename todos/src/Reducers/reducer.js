@@ -5,20 +5,40 @@ const initialState = {
     todoList
 };
 
+
 const todosReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TODO:
+            let makeId = Math.floor(Math.random() * 333666999);
+            let newlyEnteredTodo = {
+                userId: 1,
+                id: makeId,
+                title: action.payload,
+                completed: false
+            };
             // wont be an array because this has to deal with wha the initial sate already looks like 
-            return [...state, action.todo];
-            break;
+            return {
+                ...state,
+                todoList: [...state.todoList, newlyEnteredTodo]
+            };
         case CLEAR_COMPLETED_TODOS:
-            return [...state, action.todo];
-            break;
+            return {
+                ...state,
+                todoList: [...state.todoList, todoList.filter(todo => !todo.completed).length]
+            };
         case DELETE_TODO:
-            return [...state, action.todo];
-            break;
+            const newTodosMinusOne = todoList.filter(todo => {
+                if (todo.id === action.payload) {
+                    return false
+                }
+                return true;
+            });
+            return {
+                ...state,
+                todoList: newTodosMinusOne
+            };
         case TOGGLE_TODO:
-            return [...state, action.todo];
+            // return {...state, action.todo};
             break;
         default:
             return state;
