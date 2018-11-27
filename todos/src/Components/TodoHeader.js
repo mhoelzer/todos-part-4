@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from "../Actions/actions" // if it's called index.js, you dont need to add it 
+import { addTodo } from "../Actions/actions"
 
 class TodoHeader extends Component {
     state = {

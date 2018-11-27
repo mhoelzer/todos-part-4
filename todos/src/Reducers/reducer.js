@@ -22,9 +22,17 @@ const todosReducer = (state = initialState, action) => {
                 todoList: [...state.todoList, newlyEnteredTodo]
             };
         case CLEAR_COMPLETED_TODOS:
+            // const newTodosMinusCompleted = state.todoList.filter(todo => {
+            //     if (todo.completed === true) {
+            //         return false;
+            //     }
+            //     return true;
+            // });
+            const newTodosMinusCompleted = state.todoList.filter(todo => !todo.completed)
+            console.log("test ")
             return {
                 ...state,
-                todoList: [...state.todoList, todoList.filter(todo => !todo.completed).length]
+                todoList: newTodosMinusCompleted
             };
         case DELETE_TODO:
             const newTodosMinusOne = state.todoList.filter(todo => {
@@ -48,7 +56,6 @@ const todosReducer = (state = initialState, action) => {
                 ...state,
                 todoList: newTodosWithToggles
             };
-            break;
         default:
             return state;
     }

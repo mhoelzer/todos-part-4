@@ -24,17 +24,17 @@ class TodoItem extends Component {
     };
 };
 
-// put the title stuff?
-const mapStateToProps = (state) => {
-    return {
-        // title
-    }
-};
-// put the rest
-const mapDispatchToProps = (dispatch) => {
-    return {
-        // clearCompletedTodos: () => dispatch(clearCompletedTodos())
-    }
-};
-export default connect(mapStateToProps, mapDispatchToProps)(TodoItem)
-// export default TodoItem;
+// // put the title stuff?
+// const mapStateToProps = (state) => {
+//     return {
+//         // title
+//     }
+// };
+// // put the rest
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         // clearCompletedTodos: () => dispatch(clearCompletedTodos())
+//     }
+// };
+// export default connect(mapStateToProps, mapDispatchToProps)(TodoItem)
+export default TodoItem;
