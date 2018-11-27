@@ -38,7 +38,16 @@ const todosReducer = (state = initialState, action) => {
                 todoList: newTodosMinusOne
             };
         case TOGGLE_TODO:
-            // return {...state, action.todo};
+            const newTodosWithToggles = state.todoList.map(todo => {
+                if (todo.id === action.payload) {
+                    todo.completed = !todo.completed;
+                }
+                return todo;
+            });
+            return {
+                ...state,
+                todoList: newTodosWithToggles
+            };
             break;
         default:
             return state;

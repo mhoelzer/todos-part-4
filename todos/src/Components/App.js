@@ -13,17 +13,18 @@ class App extends Component {
 
   // function inside funciton; once called the first time, the first outer funxtion will run and implicitly returns inner function (the event handler); first param is event obj sent from dom; cTI can be accessed inside inner funct
   handleToggleCompletedTodo = clickedTodoId => event => {
-    // map makes new array to get results in newtodos
-    const newTodos = this.state.todos.map(todo => {
-      // get todo id that matches one was clicked; if this is false, no run
-      if (todo.id === clickedTodoId) {
-        // change completed value/any boolean value (t vs f)
-        todo.completed = !todo.completed;
-      }
-      return todo; // have to return original todo obj
-    });
-    // overwrite todos w/ newtodos
-    this.setState({ todos: newTodos });
+    this.props.toggleTodo(clickedTodoId)
+    // // map makes new array to get results in newtodos
+    // const newTodos = this.state.todos.map(todo => {
+    //   // get todo id that matches one was clicked; if this is false, no run
+    //   if (todo.id === clickedTodoId) {
+    //     // change completed value/any boolean value (t vs f)
+    //     todo.completed = !todo.completed;
+    //   }
+    //   return todo; // have to return original todo obj
+    // });
+    // // overwrite todos w/ newtodos
+    // this.setState({ todos: newTodos });
   };
 
   // will lose these handlers b/c just data and not doing stuffon dom
