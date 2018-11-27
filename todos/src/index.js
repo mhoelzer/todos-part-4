@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 import './index.css';
 import App from './Components/App';
-import todosReducer from "./reducer.js";
+import todosReducer from "./Reducers/reducer.js";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 

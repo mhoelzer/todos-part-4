@@ -1,5 +1,5 @@
-import { ADD_TODO, CLEAR_COMPLETED_TODOS, DELETE_TODO, TOGGLE_TODO } from "./actions.js";
-import todoList from './todos.json'; // this will get the collection of all the messages and can put in the inital state
+import { ADD_TODO, CLEAR_COMPLETED_TODOS, DELETE_TODO, TOGGLE_TODO } from "../Actions/actions.js";
+import todoList from '../todos.json'; // this will get the collection of all the messages and can put in the inital state
 
 const initialState = {
     todoList
@@ -8,7 +8,7 @@ const initialState = {
 const todosReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TODO:
-        // wont be an array because this has to deal with wha tthe initial sate already looks like 
+            // wont be an array because this has to deal with wha the initial sate already looks like 
             return [...state, action.todo];
             break;
         case CLEAR_COMPLETED_TODOS:
