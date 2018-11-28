@@ -13,6 +13,8 @@ class TodoHeader extends Component {
         })
     };
 
+    // without this, it's not a controlled input; not modifying what is being displayed, unless you want it to do something like special char or all caps as person types 
+    
     // need to ahndle something with dom, so keep this
     // because "editting" or w/e cause of state, not "reading", inside the heder, have null for mSTP; info getting dispatched is w/e you enter 
     handleAddTodo = event => {
@@ -20,7 +22,8 @@ class TodoHeader extends Component {
         const { title } = this.state;
         if (event.keyCode === 13) { // 13 is the code for enter; could also do event.key == "Enter"
             addTodo(title);
-            this.setState({ title: "" });
+            event.target.value = "";
+            // or this.setState({ title: "" });
         };
     };
 
