@@ -13,7 +13,9 @@ const Index = () => (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
         {/* comp that procides access to connect for any subcomp to be able to access redux store */}
         <Provider store={store}>
-            <Route render={(props) => <App pathname={props.location.pathname}/>}>
+            <Route render={(props) => 
+                <App pathname={props.location.pathname} />
+            }>
             </Route>
         </Provider>
     </BrowserRouter>
