@@ -8,17 +8,16 @@ import { deleteTodo, toggleTodo } from "../Actions/actions"
 class App extends Component {
   // wont need state b/c redux will have the state stuff 
 
-  // function inside funciton; once called the first time, the first outer funxtion will run and implicitly returns inner function (the event handler); first param is event obj sent from dom; cTI can be accessed inside inner funct
   handleToggleCompletedTodo = clickedTodoId => event => {
     this.props.toggleTodo(clickedTodoId)
   };
-
   // will lose these handlers b/c just data and not doing stuffon dom
   handleDestroyOne = clickedTodoId => event => {
     this.props.deleteTodo(clickedTodoId);
   };
 
   render() {
+    // console.log(this.props.pathname)
     const { todos } = this.props;
     const allHandlingProps = {
       // handleAddTodo: this.handleAddTodo,
@@ -30,9 +29,9 @@ class App extends Component {
     return (
       <section className="todoapp">
         <Switch>
-          <Route exact path="/active" render={props => <TodoList {...props} {...allHandlingProps} todos={todos.filter(todo => !todo.completed)} />} />
-          <Route exact path="/completed" render={props => <TodoList {...props} {...allHandlingProps} todos={todos.filter(todo => todo.completed)} />} />
-          <Route exact path="/" render={props => <TodoList {...props} {...allHandlingProps} todos={todos} />} />
+          <Route exact path="/active" render={props => <TodoList {...props} {...allHandlingProps} todos={todos.filter(todo => !todo.completed)} route="active"/>} />
+          <Route exact path="/completed" render={props => <TodoList {...props} {...allHandlingProps} todos={todos.filter(todo => todo.completed)} route="completed"/>} />
+          <Route exact path="/" render={props => <TodoList {...props} {...allHandlingProps} todos={todos} route="/"/>} />
         </Switch>
       </section>
     );

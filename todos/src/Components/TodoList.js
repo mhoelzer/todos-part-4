@@ -6,9 +6,6 @@ import TodoHeader from './TodoHeader.js';
 import TodoFooter from './TodoFooter.js';
 
 class TodoList extends Component {
-    // state = {
-    //     todos: todoList
-    // };    
     render() {
         const { todos, handleAddTodo } = this.props;
         return (
@@ -22,7 +19,7 @@ class TodoList extends Component {
                         {/* call the hTCT and pass in the todoid and store inside clickedTodoId var, which causes cTI to be in scope for event function  --> completeTodo can also just be hTCT; it rerenders only 1 when props change */}
                     </ul>
                 </section>
-                <TodoFooter completed={this.props.completed} handleDestroyAllCompletedTodos={this.props.handleDestroyAllCompletedTodos}/>
+                <TodoFooter completed={this.props.completed} handleDestroyAllCompletedTodos={this.props.handleDestroyAllCompletedTodos} filter={this.props.location.pathname}/>
             </React.Fragment>
         );
     };

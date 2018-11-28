@@ -5,7 +5,6 @@ const initialState = {
     todoList
 };
 
-
 const todosReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TODO:
@@ -22,12 +21,6 @@ const todosReducer = (state = initialState, action) => {
                 todoList: [...state.todoList, newlyEnteredTodo]
             };
         case CLEAR_COMPLETED_TODOS:
-            // const newTodosMinusCompleted = state.todoList.filter(todo => {
-            //     if (todo.completed === true) {
-            //         return false;
-            //     }
-            //     return true;
-            // });
             const newTodosMinusCompleted = state.todoList.filter(todo => !todo.completed)
             console.log("test ")
             return {
