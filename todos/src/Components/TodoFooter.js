@@ -5,7 +5,7 @@ import { clearCompletedTodos } from "../Actions/actions"
 
 class TodoFooter extends Component {
     render() {
-        console.log(this.props.filter)
+        // console.log(this.props.filter)
         // if dont do this, change this to match the stuff with todos and this.state
         const { completed, clearCompletedTodos, filter } = this.props;
         return (
@@ -34,10 +34,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         // call actionCreater() and dispatch it to the redux reducer; could alwayes just write as cCT() as long as named as same thing as prop in comp above and put in {} inside connect
         clearCompletedTodos: () => dispatch(clearCompletedTodos())
-        // clearCompletedTodos: (id) => dispatch(clearCompletedTodos(id))
     }
 };
 // if export derfault, dont have to use the same name; this one isnt nameed at all
 // connect decides when to call these functions; helps relay stuff into react; dont have to pass down props to mult levels; can modify any state on one comp 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoFooter);
-// export default TodoFooter;

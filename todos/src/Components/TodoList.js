@@ -11,7 +11,7 @@ class TodoList extends Component {
         return (
             // react.fragment is used when there are multpile big tag things
             <React.Fragment>
-                <TodoHeader handleAddTodo={handleAddTodo}/>
+                <TodoHeader handleAddTodo={handleAddTodo} />
                 <section className="main">
                     <ul className="todo-list">
                         {/* when put in comp state; when inside the map function, it will be a single todo */}
@@ -19,7 +19,8 @@ class TodoList extends Component {
                         {/* call the hTCT and pass in the todoid and store inside clickedTodoId var, which causes cTI to be in scope for event function  --> completeTodo can also just be hTCT; it rerenders only 1 when props change */}
                     </ul>
                 </section>
-                <TodoFooter completed={this.props.completed} handleDestroyAllCompletedTodos={this.props.handleDestroyAllCompletedTodos} filter={this.props.location.pathname}/>
+                {/* can't rerender without passing down props, so w/o the filter, it wouldnt work in the footer */}
+                <TodoFooter completed={this.props.completed} handleDestroyAllCompletedTodos={this.props.handleDestroyAllCompletedTodos} filter={this.props.location.pathname} />
             </React.Fragment>
         );
     };

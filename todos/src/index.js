@@ -19,6 +19,5 @@ const Index = () => (
     </BrowserRouter>
 );
 
-// ReactDOM.render(<App />, document.getElementById('root'));
 ReactDOM.render(<Index />, document.getElementById('root'));
 // first param has to be component

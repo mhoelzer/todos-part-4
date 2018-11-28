@@ -20,18 +20,16 @@ class App extends Component {
     // console.log(this.props.pathname)
     const { todos } = this.props;
     const allHandlingProps = {
-      // handleAddTodo: this.handleAddTodo,
       handleDestroyOne: this.handleDestroyOne,
       handleToggleCompletedTodo: this.handleToggleCompletedTodo,
-      // handleDestroyAllCompletedTodos: this.handleDestroyAllCompletedTodos,
       completed: todos.filter(todo => !todo.completed).length
     };
     return (
       <section className="todoapp">
         <Switch>
-          <Route exact path="/active" render={props => <TodoList {...props} {...allHandlingProps} todos={todos.filter(todo => !todo.completed)} route="active"/>} />
-          <Route exact path="/completed" render={props => <TodoList {...props} {...allHandlingProps} todos={todos.filter(todo => todo.completed)} route="completed"/>} />
-          <Route exact path="/" render={props => <TodoList {...props} {...allHandlingProps} todos={todos} route="/"/>} />
+          <Route exact path="/active" render={props => <TodoList {...props} {...allHandlingProps} todos={todos.filter(todo => !todo.completed)} />} />
+          <Route exact path="/completed" render={props => <TodoList {...props} {...allHandlingProps} todos={todos.filter(todo => todo.completed)} />} />
+          <Route exact path="/" render={props => <TodoList {...props} {...allHandlingProps} todos={todos} />} />
         </Switch>
       </section>
     );
@@ -55,4 +53,3 @@ const mapDispatchToProps = (dispatch) => {
 // if export derfault, dont have to use the same name; this one isnt nameed at all
 // connect decides when to call these functions; helps relay stuff into react; dont have to pass down props to mult levels; can modify any state on one comp 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
-// export default App;

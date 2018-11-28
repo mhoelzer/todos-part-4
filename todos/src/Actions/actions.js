@@ -16,7 +16,6 @@ export const addTodo = (title) => {
 export const clearCompletedTodos = () => {
     return {
         type: CLEAR_COMPLETED_TODOS,
-        // payload: id
     }
 };
 
@@ -34,7 +33,3 @@ export const toggleTodo = (id) => {
         payload: id
     }
 };
-// export const toggleTodo = (id) => ({
-//     type: TOGGLE_TODO,
-//     payload: id
-// })
